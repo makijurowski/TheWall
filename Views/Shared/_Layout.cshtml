@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato" />
+    <link rel="stylesheet" href="~/lib/materialize/css/materialize.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <nav class="navbar-fixed nav-extended default-primary-color">
+        <div class="nav-wrapper center">
+            <div class="logo">
+                <a href="#test1" class="link">
+                    <span class="word1">The</span>
+                    <span class="word2">Wall</span>
+                </a>
+            </div>
+        </div>
+        <div class="nav-content container">
+        <ul class="tabs tabs-fixed-width dark-primary-color light-primary-text">
+            <li class="tab"><a class="active accent-light-text" href="#test1">The Wall</a></li>
+            @if (@ViewBag.UserName == null)
+            {
+                <li class="tab"><a class="light-primary-text" href="#test2">Register</a></li>
+                <li class="tab"><a class="light-primary-text" href="#test3">Login</a></li>
+                <li class="tab disabled"><a class="light-primary-text tooltipped" href="#test4" data-position="bottom" data-delay="50" data-tooltip="You must be logged in to logout.">Logout</a></li>
+            }
+            @if (@ViewBag.UserName != null)
+            {
+                <li class="tab disabled"><a class="light-primary-text tooltipped" href="#test2" data-position="bottom" data-delay="50" data-tooltip="You must be logged out to register.">Register</a></li>
+                <li class="tab disabled"><a class="light-primary-text tooltipped" href="#test3" data-position="bottom" data-delay="50" data-tooltip="You must be logged out to login.">Login</a></li>
+                <li class="tab"><a class="light-primary-text" href="#test4">Logout</a></li>
+            }
+        </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div id="test1" class="section">
+                @RenderBody()
+            </div>
+            <div id="test2" class="section center-align">
+                <div class="col m2 l2"></div>
+                <div class="col s12 m8 l8 center-align" id="register-form">@Html.Partial("./Partials/RegisterForm")</div>
+                <div class="col m2 l2"></div>
+            </div>
+            <div id="test3" class="section center-align">
+                <div class="col m2 l2"></div>
+                <div class="col s12 m8 l8 center-align" id="login-form">@Html.Partial("./Partials/LoginForm")</div>
+                <div class="col m2 l2"></div>
+            </div>
+            <div id="test4" class="section center-align">
+                <div class="col s12 center-align" id="logout-forms">@Html.Partial("./Partials/LogoutForms")</div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/materialize/js/materialize.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/js/site.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

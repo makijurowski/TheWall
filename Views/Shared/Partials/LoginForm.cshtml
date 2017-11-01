@@ -1,0 +1,16 @@
+@model LoginRegistration.Models.LoginUser
+
+<h3 class="thin">Login</h3>
+<form asp-action="Login" asp-controller="User" method="post" id="Login">
+    <span asp-validation-for="LogEmail"></span>
+    <div class="input-field">
+        <label asp-for="LogEmail"></label>
+        <input class="form-control validate" asp-for="LogEmail">
+    </div>
+    <span asp-validation-for="LogPassword"></span>
+    <div class="input-field">
+        <label asp-for="LogPassword"></label>
+        <input class="form-control validate" asp-for="LogPassword">
+    </div>
+    <button class="btn accent-button center" id="accent-button" type="submit" name="action">Login</button>
+</form>

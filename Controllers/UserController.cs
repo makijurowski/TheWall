@@ -48,7 +48,7 @@ namespace LoginRegistration.Controllers
                 ViewBag.UserName = HttpContext.Session.GetString("name");
                 return RedirectToAction("Index", "Wall");
             }
-            return View("Index");
+            return RedirectToAction("Index", "Wall");
         }
 
         [HttpPost]
@@ -71,7 +71,7 @@ namespace LoginRegistration.Controllers
                 ViewBag.UserName = HttpContext.Session.GetString("name");
                 return RedirectToAction("Index", "Wall");
             }
-            return View("Index");
+            return RedirectToAction("Index", "Wall");
         }
 
         [HttpPost]

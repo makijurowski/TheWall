@@ -38,7 +38,7 @@ namespace LoginRegistration.Controllers
                 string query = $@"INSERT INTO Users (first_name, last_name, email, password, created_at, updated_at)
                             VALUES('{user.FirstName}', '{user.LastName}', '{user.Email}', '{hashed}', NOW(), NOW());
                             SELECT LAST_INSERT_ID() as id";
-                HttpContext.Session.SetInt32("id", Convert.ToInt32(_dbConnector.Query(query)[0]["id"]));
+                HttpContext.Session.SetInt32("id", Convert.ToInt32(_dbConnector.Query(query)[0]["id"].ToString()));
                 // Confirm by getting userinfo
                 string userQuery = string.Format($"SELECT * FROM Users WHERE email = '{user.Email}'");
                 List<Dictionary<string, object>> User = _dbConnector.Query(userQuery);

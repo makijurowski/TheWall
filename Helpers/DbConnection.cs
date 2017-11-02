@@ -26,7 +26,7 @@ namespace LoginRegistration
             {
                 using(IDbCommand command = dbConnection.CreateCommand())
                 {
-                   command.CommandText = queryString.ToLower();
+                   command.CommandText = queryString;
                    dbConnection.Open();
                    var result = new List<Dictionary<string, object>>();
                    using(IDataReader rdr = command.ExecuteReader())
@@ -51,7 +51,7 @@ namespace LoginRegistration
             {
                 using(IDbCommand command = dbConnection.CreateCommand())
                 {
-                    command.CommandText = queryString.ToLower();
+                    command.CommandText = queryString;
                     dbConnection.Open();
                     command.ExecuteNonQuery();
                 }

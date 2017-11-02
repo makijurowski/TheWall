@@ -59,7 +59,7 @@ namespace LoginRegistration.Controllers
             List<Dictionary<string, object>> User = _dbConnector.Query(loginQuery);
             PasswordHasher<LoginUser> hasher = new PasswordHasher<LoginUser>();
 
-            if((User.Count == 0 || user.LogPassword == null) || hasher.VerifyHashedPassword(user, (string)User[0]["password"], user.LogPassword) == 0)
+            if((User.Count == 0 || user.LogPassword == null) || hasher.VerifyHashedPassword(user, (string)User[0]["password"].ToString(), user.LogPassword) == 0)
             {
                 ModelState.AddModelError("LogEmail", "Invalid email or password entered.");
             }

@@ -1,4 +1,4 @@
-# The Wall Using ASP.NET
+# The Wall Message Board
 
 - This project consists of a simple messaging board for users to exchange posts and comments.
 
@@ -17,7 +17,7 @@
 ### Known Issues
 - Unused dependencies
 - Needs code refactoring
-- New messages and comments require refreshing view
+- New messages and comments refresh current view
 - Session limitations
 - Logout requires extra button click
 
@@ -26,4 +26,4 @@
 - Titles for posts
 - Build system to handle user permissions
 - Speech-to-text posting
-- Ability for users to post richly formatted text including code snippets# TheWall
+- Ability for users to post richly formatted text including code snippets

@@ -39,10 +39,6 @@ namespace LoginRegistration
         public void Configure(IApplicationBuilder App, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole();
-            app.UseForwardedHeaders(new ForwardedHeadersOptions
-            {
-                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-            });
             if (env.IsDevelopment())
             {
                 App.UseDeveloperExceptionPage();
